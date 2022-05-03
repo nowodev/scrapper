@@ -37,27 +37,7 @@ class ScrapperController extends Controller
             'url' => 'required|url',
         ]);
 
-        $url = $cred['url'];
-
-        $selector = $cred['selector'];
-
-        $puppeteer = new Puppeteer;
-
-        $browser = $puppeteer->launch();
-
-        $page = $browser->newPage();
-
-        $page->goto($url);
-
-        foreach ($page->querySelectorAll($selector) as $el) {
-            Scrapper::query()->create([
-                'content' => $el->getProperty('textContent')->jsonValue()
-            ]);
-//            echo ($el->getProperty('textContent')->jsonValue());
-//            var_dump($el->getProperty('textContent')->jsonValue());
-        }
-
-        $browser->close();
+        ScrapeWebsite::dispatch($cred);
 
         return redirect()->route('index');
     }
