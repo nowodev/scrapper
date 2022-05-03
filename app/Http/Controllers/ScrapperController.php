@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Scrapper;
+use App\Jobs\ScrapeWebsite;
 use Illuminate\Http\Request;
 use Nesk\Puphpeteer\Puppeteer;
 
@@ -10,7 +11,7 @@ class ScrapperController extends Controller
 {
     public function index()
     {
-        $scrappedData = Scrapper::query()->get();
+        $scrappedData = Scrapper::query()->paginate(10);
 
         return view('index', compact('scrappedData'));
     }

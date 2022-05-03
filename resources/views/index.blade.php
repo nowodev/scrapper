@@ -48,10 +48,14 @@
             <ul>
                 @foreach($scrappedData as $data)
                     <li>
-                        {{$loop->iteration}}. {{ $data->content }}
+                        {{ $loop->iteration }}. {{ $data->content }}
                     </li>
                 @endforeach
             </ul>
+
+            <div class="flex justify-end mt-10">
+                {{ $scrappedData->links() }}
+            </div>
         </div>
     </body>
 </html>
