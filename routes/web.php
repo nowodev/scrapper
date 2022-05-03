@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ScrapperController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('scrape', [ScrapperController::class, 'index']);
+Route::post('scrape-and-store', [ScrapperController::class, 'scrapeAndStore'])->name('scrapper.store');
+Route::get('screenshot', [ScrapperController::class, 'screenshot']);
