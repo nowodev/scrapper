@@ -14,5 +14,9 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "@nesk/puphpeteer": "^2.0.0",
+        "puppeteer": "^13.7.0"
     }
 }
