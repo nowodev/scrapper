@@ -18,6 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('scrape', [ScrapperController::class, 'index']);
-Route::post('scrape-and-store', [ScrapperController::class, 'scrapeAndStore'])->name('scrapper.store');
+Route::get('scrape', [ScrapperController::class, 'index'])->name('index');
+Route::post('scrape-and-store', [ScrapperController::class, 'scrapeAndStore'])->name('store');
 Route::get('screenshot', [ScrapperController::class, 'screenshot']);

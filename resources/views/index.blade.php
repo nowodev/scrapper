@@ -9,7 +9,7 @@
     </head>
     <body>
         <div>
-            <form action="{{ route('scrapper.store') }}" method="POST">
+            <form action="{{ route('store') }}" method="POST">
                 @csrf
 
                 <div>

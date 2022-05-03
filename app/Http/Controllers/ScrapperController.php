@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Scrapper;
 use Illuminate\Http\Request;
 use Nesk\Puphpeteer\Puppeteer;
-use Nesk\Rialto\Data\JsFunction;
 
 class ScrapperController extends Controller
 {
@@ -21,9 +21,9 @@ class ScrapperController extends Controller
 
         $page = $browser->newPage();
 
-        $page->goto('https://nowodev.netlify.app');
+        $page->goto('https://example.com');
 
-        $page->screenshot(['path' => 'nowodev.png']);
+        $page->screenshot(['path' => 'example.png']);
 
         $browser->close();
     }
@@ -48,10 +48,15 @@ class ScrapperController extends Controller
         $page->goto($url);
 
         foreach ($page->querySelectorAll($selector) as $el) {
-            echo ($el->getProperty('textContent')->jsonValue());
+            Scrapper::query()->create([
+                'content' => $el->getProperty('textContent')->jsonValue()
+            ]);
+//            echo ($el->getProperty('textContent')->jsonValue());
 //            var_dump($el->getProperty('textContent')->jsonValue());
         }
 
         $browser->close();
+
+        return redirect()->route('index');
     }
 }
