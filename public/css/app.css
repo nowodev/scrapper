@@ -483,6 +483,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: auto;
   margin-right: auto;
 }
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -519,11 +523,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-8 {
   margin-bottom: 2rem;
 }
+.mt-20 {
+  margin-top: 5rem;
+}
 .flex {
   display: flex;
 }
 .grid {
   display: grid;
+}
+.contents {
+  display: contents;
 }
 .hidden {
   display: none;

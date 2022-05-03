@@ -22,7 +22,6 @@
                                 {{ $errors }}
                             </li>
                         @endforeach
-
                     </div>
 
                     <div class="space-y-3">
@@ -43,6 +42,16 @@
                     </button>
                 </div>
             </form>
+
+            <hr class="my-20">
+
+            <ul>
+                @foreach($scrappedData as $data)
+                    <li>
+                        {{$loop->iteration}}. {{ $data->content }}
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </body>
 </html>

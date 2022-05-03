@@ -10,7 +10,9 @@ class ScrapperController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $scrappedData = Scrapper::query()->get();
+
+        return view('index', compact('scrappedData'));
     }
 
     public function screenshot(): void
@@ -28,7 +30,7 @@ class ScrapperController extends Controller
         $browser->close();
     }
 
-    public function scrapeAndStore(Request  $request)
+    public function scrapeAndStore(Request $request)
     {
         $cred = $request->validate([
             'selector' => 'required',
