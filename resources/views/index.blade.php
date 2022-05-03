@@ -11,7 +11,15 @@
 
     <body class="antialiased">
         <div class="container mx-auto pt-12 max-w-2xl">
+            @if ($message = Session::get('success'))
+                <div>
+                    <button type="button">×</button>
+                    <strong class="text-green-500">{{ $message }}</strong>
+                </div>
+            @endif
+
             <h1 class="text-3xl font-bold text-center mb-8">Puppeteer Web Scrapper</h1>
+
             <form action="{{ route('store') }}" method="POST">
                 @csrf
 
@@ -46,14 +54,16 @@
             <hr class="my-20">
 
             <ul>
-                @foreach($scrappedData as $data)
+                @forelse($scrappedData as $data)
                     <li>
                         {{ $loop->iteration }}. {{ $data->content }}
                     </li>
-                @endforeach
+                @empty
+                    <li>No Record Found</li>
+                @endforelse
             </ul>
 
-            <div class="flex justify-end mt-10">
+            <div class="flex justify-end my-10">
                 {{ $scrappedData->links() }}
             </div>
         </div>

@@ -40,6 +40,7 @@ class ScrapperController extends Controller
 
         ScrapeWebsite::dispatch($cred);
 
-        return redirect()->route('index');
+        return redirect()->route('index')
+            ->with('success', 'Adding Data. Refresh page within 5 seconds to see result.');
     }
 }
