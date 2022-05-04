@@ -11,7 +11,7 @@
     </head>
 
     <body class="antialiased">
-        <div class="container mx-auto pt-12 max-w-2xl">
+        <div class="container mx-auto pt-12 px-12 max-w-2xl">
             @if ($message = Session::get('success'))
                 <div>
                     <button type="button">×</button>
@@ -35,13 +35,13 @@
 
                     <div class="space-y-3">
                         <label for="selector">Selector</label>
-                        <input type="text" id="selector" class="w-2/3 flex border rounded-md py-1 px-2" name="selector"
+                        <input type="text" id="selector" class="w-full md:w-2/3 flex border rounded-md py-1.5 px-2" name="selector"
                                value="{{ old('selector') }}">
                     </div>
 
                     <div class="space-y-3">
                         <label for="url">URL</label>
-                        <input type="url" id="url" name="url" class="w-2/3 flex border rounded-md py-1 px-2"
+                        <input type="url" id="url" name="url" class="w-full md:w-2/3 flex border rounded-md py-1.5 px-2"
                                value="{{ old('url') }}">
                     </div>
 
