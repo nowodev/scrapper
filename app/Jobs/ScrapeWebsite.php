@@ -39,7 +39,9 @@ class ScrapeWebsite implements ShouldQueue
 
         $puppeteer = new Puppeteer;
 
-        $browser = $puppeteer->launch();
+        $browser = $puppeteer->launch([
+            'args' => ['--no-sandbox', '--disable-setuid-sandbox'],
+        ]);
 
         $page = $browser->newPage();
 
